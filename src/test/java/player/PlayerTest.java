@@ -25,27 +25,17 @@ class PlayerTest {
     }
 
     @Test
-    public void playerShouldHave20Cards() {
+    public void playerShouldHave3CardsInHandAfterInitialization() {
         player = new Player(TEST_PLAYER_NAME);
-        assertThat("Player should have 20 Damage cards by default", player.getCards().size(), is(equalTo(20)));
+        Hand hand = player.getHand();
+        List<Card> handCardList = hand.getHandCardList();
+        assertThat("Player should have 3 cards in hand after initialization",  handCardList.size(), equalTo(3));
     }
 
     @Test
-    public void playerShouldHaveCardsWithSpecifiedValuesByDefault() {
+    public void playerShouldHave17CardsInDeckAfterInitialization() {
         player = new Player(TEST_PLAYER_NAME);
-        final List<Card> cards = player.getCards();
-        assertThat(getCardsAmountWithValue(cards, 0), is(2L));
-        assertThat(getCardsAmountWithValue(cards, 1), is(2L));
-        assertThat(getCardsAmountWithValue(cards, 2), is(3L));
-        assertThat(getCardsAmountWithValue(cards, 3), is(4L));
-        assertThat(getCardsAmountWithValue(cards, 4), is(3L));
-        assertThat(getCardsAmountWithValue(cards, 5), is(2L));
-        assertThat(getCardsAmountWithValue(cards, 6), is(2L));
-        assertThat(getCardsAmountWithValue(cards, 7), is(1L));
-        assertThat(getCardsAmountWithValue(cards, 8), is(1L));
-    }
-
-    private long getCardsAmountWithValue(List<Card> cards, int damage) {
-        return cards.stream().map(card -> card.getCardDamage()).filter(integer -> integer.equals(damage)).count();
+        List<Card> cardList = player.getCardList();
+        assertThat("In deck should be only 17 cards after initialization", cardList.size(), equalTo(17));
     }
 }
