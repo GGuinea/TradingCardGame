@@ -37,6 +37,6 @@ public class Game {
 
     private int chooseStartingPlayer() {
         Random rand = new Random();
-        return rand.nextInt(NUMBER_OF_PLAYERS+1);
+        return rand.ints(1, NUMBER_OF_PLAYERS + 1).findFirst().getAsInt();
     }
 }
