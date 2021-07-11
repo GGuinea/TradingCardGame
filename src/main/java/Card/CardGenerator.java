@@ -16,7 +16,6 @@ public class CardGenerator {
         addCardsWithDamageValue(2, 6, cardList);
         addCardsWithDamageValue(1, 7, cardList);
         addCardsWithDamageValue(1, 8, cardList);
-        // tutaj moze jakas strategia czy cos??? bo to słabo wygląda
         return cardList;
     }
 
