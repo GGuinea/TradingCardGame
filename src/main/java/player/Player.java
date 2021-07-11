@@ -23,6 +23,7 @@ public class Player {
 
     private List<Card> cardList;
     private Hand hand;
+    private boolean active = false;
 
     public Player(String name) {
         this.name = name;
@@ -54,5 +55,9 @@ public class Player {
 
     private void logPlayerState() {
         log.info(toString());
+    }
+
+    public void setActive(boolean isActive) {
+        this.active = isActive;
     }
 }
