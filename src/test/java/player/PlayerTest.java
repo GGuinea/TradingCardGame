@@ -38,4 +38,15 @@ class PlayerTest {
         List<Card> cardList = player.getCardList();
         assertThat("In deck should be only 17 cards after initialization", cardList.size(), equalTo(17));
     }
+
+    @Test
+    public void manaShouldBe10When10ManaSlots() {
+        player = new Player(TEST_PLAYER_NAME);
+        for(int i = 0; i < 10; i ++) {
+            player.addManaSlot();
+        }
+        player.refillMana();
+        assertThat("Player should have 10 mana slots, after calling 10 times addManaSlot", player.getManaSlots(), equalTo(10));
+        assertThat("Player should have 10 mana when 10 mana slots after refill", player.getMana(), equalTo(10));
+    }
 }

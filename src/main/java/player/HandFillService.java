@@ -20,11 +20,19 @@ public class HandFillService {
 
     private static void fillHand(Hand hand, List<Card> avilableCardList) {
         final Card chosenCard = getRandomCard(avilableCardList);
+        if(chosenCard == null) {
+            return;
+        }
+
         hand.addCardToHand(chosenCard);
         avilableCardList.remove(chosenCard);
     }
 
     private static Card getRandomCard(List<Card> availableCardList) {
+        if(availableCardList.size() == 0) {
+            return null;
+        }
+
         final int randomIndex = rand.nextInt(availableCardList.size());
         return availableCardList.get(randomIndex);
     }
