@@ -23,4 +23,17 @@ class GameTest {
         assertThat("Should be only one player active", numberOfActivePlayers, equalTo(1L));
     }
 
+    @Test
+    public void notActivePlayerShouldStartWithOneMoreCard() {
+        Game game = new Game();
+        List<Player> playersList = game.getPlayersList();
+        for(Player player : playersList) {
+            if(!player.isActive()) {
+                assertThat("Not acitve player should start with 4 card", player.getHand().getHandCardList().size(), equalTo(4));
+            } else {
+                assertThat("Active player should start with 4 card", player.getHand().getHandCardList().size(), equalTo(3));
+            }
+        }
+    }
+
 }

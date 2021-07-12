@@ -8,10 +8,14 @@ import java.util.Random;
 public class HandFillService {
     static final Random rand = new Random();
 
-    public static void fillHandWithData (int numberOfCardsToRand, Hand hand, List<Card> availableCardList) {
+    public static void fillHandWithData(int numberOfCardsToRand, Hand hand, List<Card> availableCardList) {
         for(int i = 0; i < numberOfCardsToRand; i++) {
             fillHand(hand, availableCardList);
         }
+    }
+
+    public static void putNewCardToHand(Hand hand, List<Card> availableCardList) {
+        fillHand(hand, availableCardList);
     }
 
     private static void fillHand(Hand hand, List<Card> avilableCardList) {

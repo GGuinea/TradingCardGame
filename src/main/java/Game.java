@@ -1,6 +1,7 @@
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import player.HandFillService;
 import player.Player;
 
 import java.util.ArrayList;
@@ -24,6 +25,15 @@ public class Game {
         playersList.add(playerTwo);
 
         setActivePlayer();
+        giveAdditionalCardForNotStartingPlayer();
+    }
+
+    private void giveAdditionalCardForNotStartingPlayer() {
+        for(Player player : playersList) {
+            if(!player.isActive()) {
+                HandFillService.fillHandWithData(1, player.getHand(), player.getCardList());
+            }
+        }
     }
 
     private void setActivePlayer() {
