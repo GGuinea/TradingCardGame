@@ -18,14 +18,14 @@ public class HandFillService {
         fillHand(hand, availableCardList);
     }
 
-    private static void fillHand(Hand hand, List<Card> avilableCardList) {
-        final Card chosenCard = getRandomCard(avilableCardList);
+    private static void fillHand(Hand hand, List<Card> availableCardList) {
+        final Card chosenCard = getRandomCard(availableCardList);
         if(chosenCard == null) {
             return;
         }
 
         hand.addCardToHand(chosenCard);
-        avilableCardList.remove(chosenCard);
+        availableCardList.remove(chosenCard);
     }
 
     private static Card getRandomCard(List<Card> availableCardList) {
